@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    padding: 60px;
+    padding-top: 80px;
+    background: linear-gradient(to right, #2c2c2c, #131313);
+    color: rgb(192, 181, 181);
+    border-top-left-radius: 125px;
+}
+
+.col + .col {
+    padding-left: 30px;
+}
+
+.col {
+    max-width: 250px;
+}
+
+.socials > ul > li {
+    list-style: none;
+}   
+
+.socials {
+    padding: 40px 0;
+}
+
+.socials > ul {}
+
+p.title {
+    font-weight: bolder;
+    padding-bottom: 20px;
+}
+
+input {
+    background: none;
+    border: none;
+    color: rgb(199, 199, 199);
+    border-bottom: 1px solid;
+    line-height: 2em;
+}
+
+input:focus {
+    outline: none;
+}

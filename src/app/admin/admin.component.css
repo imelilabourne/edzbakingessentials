@@ -1,0 +1,21 @@
+h2{
+    margin: 20px;
+}
+
+.section {
+    margin: 0 20px;
+}
+
+.section > label {
+    margin-right: 10px;
+}
+
+.container {
+    margin: 20px;
+}
+
+.sub-container {
+    margin: 0 10%;
+    border: 1px solid;
+    padding: 20px;
+}

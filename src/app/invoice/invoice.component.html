@@ -1,0 +1,124 @@
+<div *ngIf="!printService.isPrinting" class="container">
+    <div class="flex">
+      <div class="">
+        <div>
+          <img src="../assets/Ebe (2).jpg" alt="">
+        </div>
+        <div class="form-div">
+          <form [formGroup] = "form" action="" class="">
+            <div class="info-div">
+              <p>Personal Information</p>
+              <div>
+                <input formControlName = "name" placeholder="Customer Name"/>
+              </div>
+              <div>
+                <input formControlName = "company" placeholder="Company Name"/>
+              </div>
+              <div>
+                <input formControlName = "address" placeholder="Address"/>
+              </div>
+              <div>
+                <input formControlName = "date" type="date" placeholder="Date Issued"/>
+              </div>
+            </div>
+           
+           <div class="info-div">
+             <p>Order</p>
+            <div>
+              <select formControlName = "description" name="" id="">
+                <option *ngFor="let i of itemsDropdown" value="{{i.code}}">{{i.desc}} - {{i.variant}}</option>
+              </select>
+              <p class="error-msg" *ngIf="form.controls['description'].invalid && form.controls['description'].touched">This is require</p>
+            </div>
+            <div>
+              <input formControlName = "qty" placeholder="Quantity"/>
+              <p class="error-msg" *ngIf="form.controls['qty'].invalid && form.controls['qty'].touched">This is require</p>
+            </div>
+           </div>
+          </form>
+        </div>
+        <div class="flex button-div">
+          <div>
+            <button class="button-add" (click)="add()">Add</button>
+          </div>
+          <div>
+            <button class="button-clear" (click)="clear()">Clear</button>
+          </div>
+          <div>
+            <button [disabled]="!isEmpty" class="button-export" (click)="downloadAsPDF()">Export To PDF</button>
+          </div>
+        </div>
+      </div>
+
+    <div>
+      <div class="container">
+        <div class="side">
+          <div class="header">
+            <h1>SALES </h1>
+            <h1>INVOICE</h1>
+          </div>
+          <p>Quezon City, Metro</p>
+          <p>Manila, Philippines</p>
+          <p>1119</p>
+          <br>
+          <p>Contact Us</p>
+          <p>Shopee/FB/Instagram</p>
+          <p>@edzbakingessentials</p>
+        </div>
+      
+        <div class="table-div">
+          <div class="personal-info">
+            <p>To: {{getValue('name')}}</p>
+            <p>Company Name: {{getValue('company')}}</p>
+            <p>{{getValue('address')}}</p>
+            <p>Date Issued: {{getValue('date') | date:"longDate"}}</p>
+          </div>
+          <table>
+            <tr>
+              <th>Description</th>
+              <th>Quantity</th>
+              <th>Unit Price</th>
+              <th>Cost</th>
+            </tr>
+            <tbody>
+              <tr (click)="actionRow(i, item)" class="class{{i}}" *ngFor = "let item of items; let i = index ">
+                <td>{{item?.description}}</td>
+                <td>{{item?.quantity}}</td>
+                <td>{{item?.uPrice | currency:'P'}}</td>
+                <td>{{item?.cost | currency:'P'}}</td>
+              </tr>
+              <tr *ngIf="isEmpty" (click)="removeSelected()" class="remove-row">
+                <td colspan="4"><fa-icon style="color: red" [icon]="faTrash"></fa-icon></td>
+              </tr>
+              <tr style="border-top: 2px solid">
+                <td></td>
+                <td></td>
+                <td>Subtotal</td>
+                <td>{{order.subTotal | currency:'P'}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>Shipping Fee</td>
+                <td>P0.00</td>
+              </tr>
+              <tr style="border-top: 1px solid">
+                <td></td>
+                <td>Tax</td>
+                <td>0.00%</td>
+                <td>P0.00</td>
+              </tr>
+              <tr style="border-top: 1px solid">
+                <td></td>
+                <td></td>
+                <td>Total</td>
+                <td>{{order.grandTotal | currency:'P'}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,84 @@
+.container {
+    width: 100%;
+    /* background: #ECECEC; */
+    overflow-x: hidden;
+}
+
+.section:nth-child(2){
+    min-height: 400px;
+    margin: 0 auto;
+    display: flex;
+    background: #ECECEC;
+    padding-top: 50px;
+}
+
+.section--two{
+    min-height: 500px;
+    background: #FFF;
+    position: relative;
+    padding-bottom: 70px;
+}
+
+.title-section {
+    color: #33AE9E;
+    min-height: 400px;
+    display: grid;
+    align-items: center;
+    font-size: 2.5em;
+    max-width: 310px;
+    margin-left: 150px;
+    letter-spacing: .05em;
+}
+
+.image-section {
+    position: absolute;
+    right: 0;
+    width: 350px;
+    z-index: 0;
+}
+
+.image-section > img {
+    opacity: 0.5;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4em;
+    padding: 40px 0;
+    color: #5F5F5F;
+}
+
+.line-1 {
+    height: 1px;
+    background: #5F5F5F;
+    width: 100px;
+}
+
+.img-wrapper > img {
+    width: 244px;
+}
+
+.img-wrapper + .img-wrapper {
+    padding-left: 30px;
+}
+
+.products-div {
+    display: flex;
+    background: #F8F8F8;
+    justify-content: space-around;
+    text-align: center;
+    margin: 0 50px;
+    padding: 50px 30px;
+}
+
+.row-div { 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.animate__animated.animate__bounceInLeft, .animate__animated.animate__bounceInRight {
+    --animate-duration: 2s;
+  }

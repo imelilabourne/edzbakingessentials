@@ -1,0 +1,35 @@
+.header, .header-space { height: 110px; }
+.footer, .footer-space { height: 20px; }
+.header { position: fixed; top: 0; }
+/* .footer { position: fixed; bottom: 0; } */
+
+.header, .footer {
+  width: 100%;
+}
+
+@media screen {
+  :host {
+    display: none;
+  }
+}
+
+img {
+   max-height: 100px;
+}
+
+.image-wrapper {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-left: -20px;
+}
+
+.line {
+  border-top: #497b9f solid;
+  margin-bottom: 4px;
+}
+
+.line-footer {
+  border-top: #497b9f solid 2px;
+  margin-bottom: 4px;
+}

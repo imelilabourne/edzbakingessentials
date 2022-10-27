@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Roboto:wght@100;500;700&display=swap');
+
+
+div {
+    margin: 0;
+    padding: 0;
+}
+
+
+table {
+    table-layout: auto;
+    width: 100%; 
+    border-collapse: collapse;
+    border: 1px dotted black;
+}
+
+th,td {
+    border: 1px dotted black;
+    text-align: start;
+}
+td {
+    padding: 10px
+}
+
+th:nth-child(1){
+    max-width: 240px;
+}
+
+th:nth-child(2) {
+    max-width: 80px;
+}
+
+th:nth-child(3), th:nth-child(4) {
+    width: 100px;
+}
+
+th {
+    background: #497b9f;
+    color: white;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 14px;
+    padding: 6px;
+}
+
+.container {
+     display: flex;
+     /* width: 100%; */
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+  
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+section {
+    height: 100vh;
+}
+
+img{
+    width: 17em;
+}
+
+.form-div {
+    border: #497b9f 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+input, select {
+    width: 250px;
+    margin: 10px 0;
+    height: 30px;
+    /* outline: none; */
+    border: none;
+    border-bottom: #062270 3px solid;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-bottom: #1cb0d4 3px solid;
+
+}
+ 
+button {
+    height: 30px;
+    min-width: 80px;
+    border: none;
+}
+
+.button-div {
+    padding-top: 20px;
+}
+
+.button-add {
+    background: #497b9f;
+    color: #fff;
+}
+
+.button-clear {
+    background:rgb(199, 72, 72);
+    color: #fff;
+}
+
+.button-export {
+    background: #e2e2e2;
+    color: rgb(31, 31, 31);
+    padding: 0 10px
+}
+
+.info-div > p {
+    /* background: #062270; */
+    text-transform: uppercase;
+    border-bottom: #062270 1px solid;
+    margin-top: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+}
+
+.header > h1{
+    font-family: 'Nunito', sans-serif;
+}
+
+.header {
+    padding-bottom: 20px;
+}
+
+.side {
+    /* width: 300px; */
+    margin-right: 30px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.personal-info > p {
+    margin-bottom: 10px;
+}
+
+.remove-row {
+    margin: 20px;
+    background: #dfdfdf;
+    width: 100%;
+}
+
+tr:hover {
+    background: #76c0f5;
+}
+
+.remove-row:hover {
+    background: rgb(231, 231, 231);
+}
+
+.remove-row > td {
+    text-align: center;
+}
+
+.selected {
+    background: #b6b6b6;
+}
+
+.error-msg {
+    font-style: italic;
+    color: red;
+    font-size: smaller;
+    margin-bottom: 10px;
+}

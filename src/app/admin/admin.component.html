@@ -1,0 +1,12 @@
+
+<h2>Update Edz Baking Product List</h2>
+<div class="section">
+    <label for="input">Upload an excel file:</label>
+    <input (change)="readExcel($event)" type="file" id="input" />
+</div>
+
+<div *ngIf="list" class="container">
+    <div class="sub-container">
+        {{list | json}}
+    </div>
+</div>

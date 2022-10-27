@@ -1,0 +1,16 @@
+<div [hidden]="isHidden" class="animate__animated animate__fadeOut animate__delay-4s">
+    <div class="content">
+        <div class="flex" style="justify-content: center;">
+            <h2 class="">Hello</h2>
+            <h2 class="handshake animate__animated animate__wobble animate__delay-1s animate__repeat-2">👋</h2>
+        </div>
+        <br>
+        <h1 class="animate__animated animate__backInUp animate__delay-1s">EDZ BAKING ESSENTIALS</h1>
+        
+        <button class="animate__animated animate__fadeInBottomLeft animate__delay-1s" (click)="generateInvoice()">Generate Invoice</button>
+    </div>
+    <div class="blur"></div>
+    <img src="../../assets/landing.jpg" alt="">
+</div>
+
+<app-invoice></app-invoice>

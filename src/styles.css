@@ -1,0 +1,27 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'NotoSansWarangCiti-Regular';
+    src: url(./assets/fonts/NotoSansWarangCiti-Regular.ttf);
+}
+
+html {
+    font-family: 'NotoSansWarangCiti-Regular', 'sans-serif';
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+@media print {
+    .isPrinting > * { display: none; }
+    .isPrinting app-print-layout { display: block; }
+  }
+  

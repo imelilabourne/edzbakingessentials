@@ -1,0 +1,39 @@
+/* @font-face {
+    font-family: 'NotoSansWarangCiti-Regular';
+    src: url(../../../assets/fonts/NotoSansWarangCiti-Regular.ttf);
+} */
+
+nav > ul{
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+ul > li {
+    margin: 0 20px;
+    color: #33AE9E;
+}
+
+nav {
+    background-color: rgba(255, 255, 255, 0.658);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+
+fa-icon {
+    padding-right: 10px;
+}
+
+.search-bar {
+    text-align: start;
+    border-bottom: solid 1px;
+    display: flex;
+    min-width: 150px;
+    padding-left:0 ;
+    line-height: 30px;
+}
