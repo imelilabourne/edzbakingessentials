@@ -19568,5 +19568,75 @@
     "variant": "Silver,2⅜\" x 3¼\"",
     "unitPrice": "85",
     "category": "FOIL POUCH"
+  },
+  {
+    "code": 21474946200,
+    "desc": "100pcs OPP Plastic with Adhesive Packaging Pouch Resealable OPP Pouch 30mic",
+    "variationId": 204165749789,
+    "variant": "3XL 13” x 15”",
+    "unitPrice": "225",
+    "category": "OPP PLASTIC"
+  },
+  {
+    "code": 22528798915,
+    "desc": "OPP Plastic with Self Adhesive Small Sizes 100 pcs",
+    "variationId": 146785312921,
+    "variant": "6\" x 8”",
+    "unitPrice": "80",
+    "category": "OPP PLASTIC"
+  },
+  {
+    "code": 22528798915,
+    "desc": "OPP Plastic with Self Adhesive Small Sizes 100 pcs",
+    "variationId": 146785312920,
+    "variant": "3½” x 6”",
+    "unitPrice": "51",
+    "category": "OPP PLASTIC"
+  },
+  {
+    "code": 21978309586,
+    "desc": "Sandwich Container Clear Clamshell Triangle Sandwich Box",
+    "variationId": 221456011078,
+    "unitPrice": "100",
+    "category": "CLAMSHELL"
+  },
+  {
+    "code": 23338251045,
+    "desc": "Single Slice Cake Container Triangle Cake Box for Slice Pie or Cake (Black) High Quality",
+    "variationId": 175819171069,
+    "unitPrice": "260",
+    "category": "CLAMSHELL"
+  },
+  {
+    "code": 4344970469,
+    "desc": "20pcs Cupcake/Macarons Boxes 4″x6″x2″ Pre-formed Box RM Boxes",
+    "variationId": 214164473501,
+    "variant": "Viva Magenta",
+    "unitPrice": "245",
+    "category": "PASTRY BOX"
+  },
+  {
+    "code": 15891123587,
+    "desc": "1000pcs 3oz|2oz|1oz|¾oz Cupcake Liner | Grease Resistant Liner [RM Boxes]",
+    "variationId": 184119101358,
+    "variant": "Floral Sparkle,¾oz 1000s",
+    "unitPrice": "280",
+    "category": "CUPCAKE LINER"
+  },
+  {
+    "code": 15891123587,
+    "desc": "1000pcs 3oz|2oz|1oz|¾oz Cupcake Liner | Grease Resistant Liner [RM Boxes]",
+    "variationId": 88665995456,
+    "variant": "White,¾oz 1000s",
+    "unitPrice": "245",
+    "category": "CUPCAKE LINER"
+  },
+  {
+    "code": 15891123587,
+    "desc": "1000pcs 3oz|2oz|1oz|¾oz Cupcake Liner | Grease Resistant Liner [RM Boxes]",
+    "variationId": 88665995460,
+    "variant": "Brown,¾oz 1000s",
+    "unitPrice": "280",
+    "category": "CUPCAKE LINER"
   }
 ]
