@@ -6,6 +6,7 @@
     background: linear-gradient(to right, #2c2c2c, #131313);
     color: rgb(192, 181, 181);
     border-top-left-radius: 125px;
+    position: relative;
 }
 
 .col + .col {
@@ -24,7 +25,6 @@
     padding: 40px 0;
 }
 
-.socials > ul {}
 
 p.title {
     font-weight: bolder;
@@ -41,4 +41,15 @@ input {
 
 input:focus {
     outline: none;
+}
+
+@media (max-width: 850px) {
+    .container {
+         display: grid;
+         gap: 30px;
+    }
+
+    .col + .col {
+        padding-left: 0;
+    }
 }

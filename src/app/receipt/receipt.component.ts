@@ -18,6 +18,8 @@ export class ReceiptComponent implements OnInit {
     grandTotal: 0
   }
   customerInfo: CustomerInfo;
+  shippingFee: 0;
+  discount: 0
   constructor(public printService:PrintService) { }
 
   ngOnInit(): void {
@@ -33,7 +35,9 @@ export class ReceiptComponent implements OnInit {
         this.items = decryptedData.items
         this.total.subTotal = decryptedData.subTotal;
         this.total.grandTotal = decryptedData.grandTotal;
-        this.customerInfo = decryptedData.customerInfo
+        this.customerInfo = decryptedData.customerInfo,
+        this.shippingFee = decryptedData.shippingFee,
+        this.discount = decryptedData.discount
       }
       this.printService.onDataReady()
     }

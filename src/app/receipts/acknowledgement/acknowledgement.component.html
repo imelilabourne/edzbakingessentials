@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>ACKNOWLEDGEMENT RECEIPT</h1>
+
+    <p>Date: {{date | date}}</p>
+    <div class="content">
+        <p>Received from <span class="underlined">{{ details?.fullname | uppercase}}</span> the sum of 
+            <span class="underlined">{{ amountWordings | uppercase }}</span> 
+            <span class="underlined" style="padding-left: 0px;">({{amount | currency: 'Php '}})</span> in full / partial payment for <span class="underlined">{{ details?.description | uppercase}}.</span>
+        </p> 
+    </div>
+    <br>
+    <!-- <div class="flex"> -->
+        <div class="checkbox-div" style="width: 400px;">
+            <label>
+                <input type="checkbox" readonly [checked]="details?.mop === 'Cash'"> <span class="mop">Cash:</span><span *ngIf="details?.mop === 'Cash'"> {{ details?.mopDetails}}</span>
+            </label>
+            <label>
+                <input type="checkbox" readonly [checked]="details?.mop === 'Check'"> <span class="mop">Check:</span><span *ngIf="details?.mop === 'Check'"> {{ details?.mopDetails}}</span>
+            </label>
+            <label>
+                <input type="checkbox" readonly [checked]="details?.mop === 'Bank'"> <span class="mop">Bank:</span><span *ngIf="details?.mop === 'Bank'"> {{ details?.mopDetails}}</span>
+            </label>
+        </div>
+    
+        <div class="sign">
+            <p style="padding: 0; margin: 0;">By: <span class="underlined">{{ details?.authSig | uppercase}}</span></p>
+            <p>Authorized Signatory</p>
+        </div>
+    <!-- </div> -->
+</div>

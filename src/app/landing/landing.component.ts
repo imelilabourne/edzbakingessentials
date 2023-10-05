@@ -17,7 +17,7 @@ export class LandingComponent implements OnInit {
   }
 
   generateInvoice(): void {
-    this.router.navigateByUrl("invoice");
+    this.router.navigateByUrl("invoice", { skipLocationChange: true});
   }
 
 }

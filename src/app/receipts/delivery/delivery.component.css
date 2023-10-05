@@ -1,0 +1,9 @@
+.container > h1{
+    text-align: center;
+    color: rgb(47, 47, 190);
+    font-size: 30px;
+}
+
+.container {
+    padding: 30px;
+}

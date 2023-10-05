@@ -8,9 +8,13 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavBarComponent implements OnInit {
   faSearch = faSearch;
+  status: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  burgerEvent(){
+    this.status = !this.status
+  }
 }

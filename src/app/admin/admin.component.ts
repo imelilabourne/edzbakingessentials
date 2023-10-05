@@ -16,24 +16,31 @@ export class AdminComponent implements OnInit {
 
   readExcel(e: any){
     const schema = {
-      'CODE': {
+      'Product ID': {
         prop: 'code',
         type: Number
       },
-      'DESCRIPTION': {
+      'Product Name': {
         prop: 'desc',
         type: String
       },
-      'Quantity per pack': {
-        prop: 'qtyPerPack',
+      'Stock': {
+        prop: 'stock',
         type: String
       }, 
-      'VARIANT/COLOR': {
+      'Variation ID': {
+        prop: 'variationId'
+      },
+      'Variation Name': {
         prop: 'variant',
         type: String
       },
-      'UNIT PRICE': {
+      'Price': {
         prop: 'unitPrice',
+        type: String
+      },
+      'Category': {
+        prop: 'category',
         type: String
       }
     }

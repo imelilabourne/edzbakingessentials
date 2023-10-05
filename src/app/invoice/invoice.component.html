@@ -2,12 +2,17 @@
     <div class="flex">
       <div class="">
         <div>
-          <img src="../assets/Ebe (2).jpg" alt="">
+          <img src="assets/ebe.jpg" alt="">
         </div>
         <div class="form-div">
           <form [formGroup] = "form" action="" class="">
             <div class="info-div">
               <p>Personal Information</p>
+              <div>
+                <input formControlName = "invoiceNumber" placeholder="Invoice Number" maxlength="5" />
+                <p class="error-msg" *ngIf="form.controls['invoiceNumber'].invalid && form.controls['invoiceNumber'].touched">Numbers only</p>
+
+              </div>
               <div>
                 <input formControlName = "name" placeholder="Customer Name"/>
               </div>
@@ -18,6 +23,12 @@
                 <input formControlName = "address" placeholder="Address"/>
               </div>
               <div>
+                <input formControlName = "contactNo" placeholder="Contact Number"/>
+              </div>
+              <div>
+                <input formControlName = "orderId" placeholder="Order ID"/>
+              </div>
+              <div>
                 <input formControlName = "date" type="date" placeholder="Date Issued"/>
               </div>
             </div>
@@ -25,14 +36,26 @@
            <div class="info-div">
              <p>Order</p>
             <div>
-              <select formControlName = "description" name="" id="">
-                <option *ngFor="let i of itemsDropdown" value="{{i.code}}">{{i.desc}} - {{i.variant}}</option>
+              <select formControlName = "description" (change)='onOptionsSelected($event)'>>
+                <option value="" selected disabled>SELECT PRODUCT</option>
+                <option *ngFor="let i of itemsDropdownProducts" [value]="i.code">{{i.category}} - {{i.desc}}</option>
               </select>
               <p class="error-msg" *ngIf="form.controls['description'].invalid && form.controls['description'].touched">This is require</p>
             </div>
+
             <div>
-              <input formControlName = "qty" placeholder="Quantity"/>
+              <select formControlName = "variation">
+                <option value="" selected disabled>SELECT VARIATION</option>
+                <option *ngFor="let i of itemsDropdownVariation" [value]="i.variationId">{{i.variant}}</option>
+              </select>
+              <!-- <p class="error-msg" *ngIf="form.controls['variation'].invalid && form.controls['variation'].touched">This is require</p> -->
+            </div>
+            <div>
+              <input formControlName = "qty" placeholder="Quantity" type="number"/>
               <p class="error-msg" *ngIf="form.controls['qty'].invalid && form.controls['qty'].touched">This is require</p>
+            </div>
+            <div>
+              <input formControlName = "customPrice" placeholder="Custom Price" type="number"/>
             </div>
            </div>
           </form>
@@ -45,8 +68,14 @@
             <button class="button-clear" (click)="clear()">Clear</button>
           </div>
           <div>
-            <button [disabled]="!isEmpty" class="button-export" (click)="downloadAsPDF()">Export To PDF</button>
+            <button [disabled]="!isEmpty" class="button-export" (click)="downloadAsPDF()">Print</button>
           </div>
+        </div>
+        <br>
+        <button (click)="generalService.showDialog = true" class="btn btn--discount">ADD ONS</button>
+        <div class="flex">
+          <button (click)="getAR()" class="btn btn--gen">AR</button>
+          <button class="btn btn--gen">DR</button>
         </div>
       </div>
 
@@ -56,14 +85,20 @@
           <div class="header">
             <h1>SALES </h1>
             <h1>INVOICE</h1>
+            <h1>{{getValue('invoiceNumber')}}</h1>
           </div>
           <p>Quezon City, Metro</p>
           <p>Manila, Philippines</p>
           <p>1119</p>
           <br>
           <p>Contact Us</p>
-          <p>Shopee/FB/Instagram</p>
+          <p>Shopee/Lazada/</p>
+          <p>Tiktok/FB/Instagram</p>
           <p>@edzbakingessentials</p>
+          <br>
+          <p>Registered Name</p>
+          <p>EDZ BAKING & </p>
+          <p>PACKAGING SUPPLIES</p>
         </div>
       
         <div class="table-div">
@@ -71,6 +106,8 @@
             <p>To: {{getValue('name')}}</p>
             <p>Company Name: {{getValue('company')}}</p>
             <p>{{getValue('address')}}</p>
+            <p>Contact No.: {{getValue('contactNo')}}</p>
+            <p>Order ID: {{getValue('orderId')}}</p>
             <p>Date Issued: {{getValue('date') | date:"longDate"}}</p>
           </div>
           <table>
@@ -100,7 +137,13 @@
                 <td></td>
                 <td></td>
                 <td>Shipping Fee</td>
-                <td>P0.00</td>
+                <td>{{getValue('sfFee') | currency:'P'}}</td>
+              </tr>
+              <tr *ngIf="getValue('discount')">
+                <td></td>
+                <td></td>
+                <td>Discount</td>
+                <td style="color: red">- {{getValue('discount') | currency:'P'}}</td>
               </tr>
               <tr style="border-top: 1px solid">
                 <td></td>
@@ -119,6 +162,9 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
+
+<app-dialog [questions]="questions" (discountEmitter)="getDiscount($event)" *ngIf="generalService.showDialog"></app-dialog>
+<!-- <app-dialog (discountEmitter)="getDiscount($event)" *ngIf="generalService.showDialog"></app-dialog> -->
+<app-dialog [questions]="questionsAR" (discountEmitter)="getARFieldValue($event)" *ngIf="generalService.showARDialog"></app-dialog>

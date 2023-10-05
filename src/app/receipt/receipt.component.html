@@ -3,14 +3,20 @@
           <div class="header">
             <h1>SALES </h1>
             <h1>INVOICE</h1>
+            <h1>{{customerInfo.invoiceNumber}}</h1>
           </div>
           <p>Quezon City, Metro</p>
           <p>Manila, Philippines</p>
           <p>1119</p>
           <br>
-          <p>Contact Us</p>
-          <p>Shopee/FB/Instagram</p>
+          <p class="bold">Contact Us</p>
+          <p>Shopee/Lazada/</p>
+          <p>Tiktok/FB/Instagram</p>
           <p>@edzbakingessentials</p>
+          <br>
+          <p class="bold">Registered Name</p>
+          <p>EDZ BAKING & </p>
+          <p>PACKAGING SUPPLIES</p>
         </div>
       
         <div class="table-div">
@@ -18,6 +24,8 @@
             <p>To: {{customerInfo.name}}</p>
             <p>Company Name: {{customerInfo.company}}</p>
             <p>{{customerInfo.address}}</p>
+            <p>Contact No.: {{customerInfo.contactNo}}</p>
+            <p>Order ID: {{customerInfo.orderId}}</p>
             <p>Date Issued: {{customerInfo.date}}</p>
           </div>
           <table>
@@ -44,7 +52,13 @@
                 <td></td>
                 <td></td>
                 <td>Shipping Fee</td>
-                <td>P0.00</td>
+                <td>{{shippingFee  | currency:'P'}}</td>
+              </tr>
+              <tr *ngIf="discount">
+                <td></td>
+                <td></td>
+                <td>Discount</td>
+                <td style="color: red">- {{discount | currency:'P'}}</td>
               </tr>
               <tr style="border-top: 1px solid">
                 <td></td>

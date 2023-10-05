@@ -1,0 +1,16 @@
+.container {
+    padding-top: 50px;
+}
+
+.products-div {
+    display: flex;
+    background: #F8F8F8;
+    justify-content: space-around;
+    text-align: center;
+    margin: 0 50px;
+    padding: 50px 30px;
+}
+
+.img-wrapper > img {
+    width: 244px;
+}

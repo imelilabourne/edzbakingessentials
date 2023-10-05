@@ -82,3 +82,24 @@
 .animate__animated.animate__bounceInLeft, .animate__animated.animate__bounceInRight {
     --animate-duration: 2s;
   }
+
+.img-header {
+    position: fixed;
+}
+
+@media (max-width: 750px) {
+    .img-header {
+        display: none;
+    }
+}
+
+@media (max-width: 850px) {
+    .products-div{
+        display: grid;
+        gap: 30px;
+    }
+
+    .img-wrapper > img {
+        width: 340px;
+    }
+}

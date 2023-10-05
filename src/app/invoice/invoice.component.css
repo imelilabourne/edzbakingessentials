@@ -7,7 +7,7 @@
 }
 
 .container {
-    margin: 20px;
+    padding: 20px;
     width: 100%;
 }
 
@@ -97,11 +97,22 @@ input:focus, select:focus {
     border-bottom: #1cb0d4 3px solid;
 
 }
- 
-button {
-    height: 30px;
-    min-width: 80px;
+
+.btn--discount {
+    border: 2px rgb(172, 14, 14) solid;
+    color: rgb(172, 14, 14);
+    width: 300px;
+}
+
+.btn--discount:hover {
+    background-color: rgb(172, 14, 14);
+    color: white;
     border: none;
+}
+
+.btn--gen {
+    width: 146px;
+    margin-top: 10px;
 }
 
 .button-div {
@@ -143,7 +154,7 @@ button {
 
 .side {
     /* width: 300px; */
-    margin: 0 40px;
+    margin: 0 20px;
     font-family: 'Nunito', sans-serif;
 }
 
@@ -151,10 +162,26 @@ button {
     margin-bottom: 10px;
 }
 
+.side > p {
+    font-size: 13px;
+}
+
+.side {
+    font-weight: bold;
+}
+
+.side > .header {
+    font-size: 14px;
+}
+
 .remove-row {
     margin: 20px;
     background: #dfdfdf;
     width: 100%;
+}
+
+tr, .personal-info{
+    font-size: 12px;
 }
 
 tr:hover {
@@ -178,4 +205,8 @@ tr:hover {
     color: red;
     font-size: smaller;
     margin-bottom: 10px;
+}
+
+button {
+    min-width: 88px;
 }

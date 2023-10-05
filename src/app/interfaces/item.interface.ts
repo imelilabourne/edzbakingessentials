@@ -3,5 +3,7 @@ export interface Item {
     description: string,
     quantity: number,
     uPrice: number,
-    cost: number
+    cost: number,
+    code: number,
+    variationId: number | string
 }

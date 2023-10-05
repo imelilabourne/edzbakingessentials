@@ -8,7 +8,7 @@ export class InvoiceService {
     constructor(private httpClient: HttpClient){}
 
     getProductList() {
-        return this.httpClient.get('../../assets/items.json');
+        return this.httpClient.get('assets/items.json');
     }
 
     getSQL() {

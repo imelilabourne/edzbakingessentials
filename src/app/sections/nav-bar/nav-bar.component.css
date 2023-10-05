@@ -37,3 +37,88 @@ fa-icon {
     padding-left:0 ;
     line-height: 30px;
 }
+
+.burger {
+    position: absolute;
+}
+
+a {
+    text-decoration: inherit;
+    color: inherit;
+    /* cursor: auto; */
+}
+
+@media (max-width: 780px) {
+    nav > ul, nav {
+        display: grid;
+    }
+
+    nav > ul > li {
+        padding: 4px 10px;
+    }
+
+    nav > ul > li:hover {
+        background-color: #33AE9E;
+        color: rgb(205, 205, 205);
+    }
+
+    nav > ul {
+        justify-items: center;
+        gap: 6px;
+    }
+
+    nav {
+        background: rgb(226, 226, 226);
+        height: 260px;
+        justify-content: center;
+        padding: 10px 0;
+        /* position: relative; */
+    }
+
+    .search-bar {
+        min-width: 90px;
+    }
+
+    .burger {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+    }
+
+    .line {
+        height: 2px;
+        background: #33AE9E;
+        width: 20px;
+        margin: 4px 0;
+    } 
+
+    .rotate {
+        height: 2px;
+        background: #33AE9E;
+        width: 20px;
+        margin: 4px 0;
+        transform: rotate(-45deg);
+        transform-origin: 50% -100%;
+    }
+
+    .rotate-2 {
+        height: 2px;
+        background: #33AE9E;
+        width: 20px;
+        margin: 4px 0;
+        transform: rotate(45deg);
+        transform-origin: 20px 2px;
+    }
+    
+    .none {
+        display: none;
+    }
+
+    .none > li {
+        display: none;
+    }
+
+    .nav {
+        height: 50px;
+    }
+}

@@ -1,11 +1,16 @@
-<nav>
-    <ul>
-        <li>SHOP</li>
-        <li>INSIDE THE TIN</li>
+<nav [ngClass]="status ? 'nav' : ''">
+    <div (click)="burgerEvent()" class="burger" >
+        <div [ngClass]="status ? 'line' : 'rotate'"></div>
+        <div [ngClass]="status ? 'line' : ''"></div>
+        <div [ngClass]="status ? 'line' : 'rotate-2'"></div>
+    </div>
+    <ul [ngClass]="status ? 'none' : ''">
+        <li><a routerLink="/shop">SHOP</a></li>
+        <li><a routerLink="/products">PRODUCTS</a></li>
         <li>ABOUT</li>
-        <li>STORE LOCATOR</li>
+        <li><a routerLink="/location">STORE LOCATION</a></li>
     </ul>
-    <ul>
+    <ul [ngClass]="status ? 'none' : ''">
         <li class="search-bar">
             <fa-icon [icon]="faSearch"></fa-icon>
             <p>SEARCH</p>

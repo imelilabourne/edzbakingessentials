@@ -1,0 +1,15 @@
+<div id="container" *ngIf="questions">
+    <app-form  #template [questions]="questions | async"></app-form>
+    
+    <div class="buttons">      
+        <button class="btn" (click)="addDiscount()">Confirm</button>
+        <button class="btn-cancel" (click)="cancelDialog('cancel')">Cancel</button>
+    </div>
+    <!-- <form [formGroup]="form">
+        <input type="number" formControlName="discount" placeholder="Add Discount">
+        <input type="number" formControlName="shippingFee" placeholder="Shipping Fee">
+    
+        <button class="btn" (click)="addDiscount()">Confirm</button>
+        <button class="btn-cancel" (click)="generalService.showDialog = false">Cancel</button>
+    </form> -->
+</div>

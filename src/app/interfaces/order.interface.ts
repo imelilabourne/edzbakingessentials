@@ -4,5 +4,6 @@ export interface Order {
     orders: Item[],
     subTotal: number,
     tax: string,
-    grandTotal: number
+    grandTotal: number,
+    shippingFee: number
 }

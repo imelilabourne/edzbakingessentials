@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./print-layout.component.css']
 })
 export class PrintLayoutComponent implements OnInit {
+  imageSource: String = 'assets/ebe.jpg';
 
   constructor() { }
 
