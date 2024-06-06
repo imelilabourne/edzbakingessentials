@@ -12,6 +12,11 @@
     src: url(./assets/fonts/NotoSansWarangCiti-Regular.ttf);
 }
 
+@font-face {
+    font-family: 'Nunito';
+    src: url(./assets/fonts/NunitoSans.ttf);
+}
+
 html {
     font-family: 'NotoSansWarangCiti-Regular', 'sans-serif';
     margin: 0;

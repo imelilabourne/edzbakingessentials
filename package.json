@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build-gh": "ng build --prod --base-href /edzbakingessentials/",
+    "deploy": "gh-pages -d dist/base"
   },
   "private": true,
   "dependencies": {

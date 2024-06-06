@@ -33,9 +33,10 @@ th {
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-size: 14px;
     padding: 6px;
+    text-align: start;
 }
 
-th,td {
+td {
     border: 1px dotted black;
     text-align: start;
 }
