@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="customer-info"> 
+        <div class="flex">
+            <h2 style="font-weight: bold;">{{ deliveryDetails?.name | titlecase}}</h2>
+            <p>ORDER DATE: {{deliveryDetails?.orderDate | titlecase | date:"longDate"}}</p>
+        </div>
+        <p>Address: {{ deliveryDetails?.address | titlecase}}</p>
+        <p>Contact No: {{ deliveryDetails?.contactNo}}</p>
+        <p>TIN: {{ deliveryDetails?.tin}}</p>
+    </div>
+
+    <table>
+        <tr>
+            <th>DESCRIPTION</th>
+            <th style="min-width: 120px">PRICE</th>
+            <th>QUANTITY</th>
+            <th>SUBTOTAL</th>
+        </tr>
+
+        <tr *ngFor="let item of items">
+            <td>{{item.description}}</td>
+            <td>{{item.uPrice | currency: 'Php '}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.quantity*item.uPrice| currency: 'Php '}}</td>
+        </tr>
+    </table>
+    <div class="table-header" style="text-align: right; padding: 10px; padding-right: 40px;">   
+        <div style="text-align: end; font-weight: bold;">GRAND TOTAL<span style="padding-left: 20px;">: {{deliveryDetails?.grandTotal | currency: 'Php '}}</span></div>
+    </div>
+</div>
+
+<invoice-footer-v2></invoice-footer-v2>

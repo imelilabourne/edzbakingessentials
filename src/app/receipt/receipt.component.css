@@ -35,8 +35,10 @@ th:nth-child(3), th:nth-child(4) {
 }
 
 th {
-    background: #497b9f;
-    color: white;
+    /* background: #497b9f;
+    color: white; */
+    color: #004AAD;
+    border: #004AAD solid 1px;
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-size: 14px;
     padding: 6px;

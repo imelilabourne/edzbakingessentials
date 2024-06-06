@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PurchaseOrderComponent } from '../receipts/purchase-order/purchase-order.component';
+import { Router } from '@angular/router';
+import { PrintService } from '../services/print.service';
 
 @Component({
   selector: 'app-print-layout',
@@ -7,10 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrintLayoutComponent implements OnInit {
   imageSource: String = 'assets/ebe.jpg';
+  headerVersion: number = 1;
 
-  constructor() { }
+  constructor(private printService: PrintService) { }
 
   ngOnInit(): void {
+    console.log(this.printService.designVersion)
+    this.headerVersion = this.printService.designVersion
   }
 
 }

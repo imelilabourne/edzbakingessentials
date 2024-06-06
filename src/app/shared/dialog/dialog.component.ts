@@ -35,6 +35,8 @@ export class DialogComponent implements OnInit {
   cancelDialog(msg: string) {
     this.generalService.showDialog = false
     this.generalService.showARDialog = false
+    this.generalService.showPODialog = false
+    this.generalService.showDRDialog = false
     this.cancel.emit(msg)
   }
 
@@ -43,5 +45,7 @@ export class DialogComponent implements OnInit {
     this.discountEmitter.emit(this.template.payload)
     this.generalService.showDialog = false
     this.generalService.showARDialog = false
+    this.generalService.showPODialog = false
+    this.generalService.showDRDialog = false
   }
 }

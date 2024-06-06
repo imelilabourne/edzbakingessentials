@@ -9,6 +9,8 @@ import { ReceiptComponent } from './receipt/receipt.component';
 import { AcknowledgementComponent } from './receipts/acknowledgement/acknowledgement.component';
 import { ProductsComponent } from './shop/products/products.component';
 import { ShopComponent } from './shop/shop.component';
+import { DeliveryComponent } from './receipts/delivery/delivery.component';
+import { PurchaseOrderComponent } from './receipts/purchase-order/purchase-order.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'landing'},
@@ -26,12 +28,14 @@ const routes: Routes = [
   //   ]
   // },
 
-  { path: 'print',
+  { path: '',
     outlet: 'print',
     component: PrintLayoutComponent,
     children: [
       { path: 'invoice', component: ReceiptComponent },
       { path: 'AR', component: AcknowledgementComponent },
+      { path: 'DR', component: DeliveryComponent },
+      { path: 'PO', component: PurchaseOrderComponent },
     ]
   },
   { path: '**', component: ShopComponent}

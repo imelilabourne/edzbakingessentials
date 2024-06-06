@@ -12,12 +12,14 @@ import { Order } from '../interfaces/order.interface';
 import { GeneralService } from '../services/general.service';
 import { InvoiceService } from '../services/invoice.service';
 import { PrintService } from '../services/print.service';
+import { POService } from '../dynamic-form/services/purchase-order-receipt.service';
+import { DRService } from '../dynamic-form/services/delivery-receipt.service';
 
 @Component({
   selector: 'app-invoice',
   templateUrl: './invoice.component.html',
   styleUrls: ['./invoice.component.css'],
-  providers: [ ARService, QuestionDiscountService ]
+  providers: [ ARService, QuestionDiscountService, POService, DRService ]
 })
 export class InvoiceComponent implements OnInit {
   form: FormGroup = new FormGroup({});
@@ -26,6 +28,7 @@ export class InvoiceComponent implements OnInit {
   itemsDropdownVariation: any;
   itemsDropdownProducts: any;
   isEmpty: boolean = false; 
+  isInvoicePrint: boolean = false;
   order: Order = {
     subTotal : 0,
     tax: '',
@@ -43,13 +46,19 @@ export class InvoiceComponent implements OnInit {
   print = true;
   questions: Observable<Base<any>[]>
   questionsAR: Observable<Base<any>[]>;
+  questionsPO: Observable<Base<any>[]>;
+  questionsDR: Observable<Base<any>[]>;
 
   constructor(private formBuilder: FormBuilder, private service: InvoiceService, public printService:PrintService, 
     public generalService: GeneralService,
     ARService: ARService,
+    POService: POService,
+    DRService: DRService,
     discountService: QuestionDiscountService) {
     this.questionsAR = ARService.getARFields()
     this.questions = discountService.getInvoiceDiscountFields();
+    this.questionsPO = POService.getPOFields()
+    this.questionsDR = DRService.getDRFields()
   }
 
   ngOnInit(){
@@ -77,8 +86,34 @@ export class InvoiceComponent implements OnInit {
     this.generalService.showARDialog = true
   }
 
+  getDR() {
+    this.generalService.showDRDialog = true
+  }
+
+  getPO() {
+    this.generalService.showPODialog = true
+  }
+
+  getPOFieldValue(e: any) {
+    this.isInvoicePrint = false
+    const data = {
+      name: e.name,
+      address: e.address,
+      contactNo: e.contactNumber,
+      tin: e.tin,
+      grandTotal: this.order.grandTotal,
+      items: this.items,
+      orderDate: e.orderDate
+    }
+    console.log(data)
+    var ciphertext = CryptoJS.AES.encrypt(JSON.stringify(data), '1234214214221').toString();
+    localStorage.setItem("PO-data", JSON.stringify(ciphertext))
+    this.printService.printDocument('PO');
+  }
+
   getARFieldValue(e: any) {
     console.debug(e)
+    this.isInvoicePrint = false
     const data = {
         fullname: e.firstName + ' ' + e.lastName,
         payment: e.payment,
@@ -91,6 +126,31 @@ export class InvoiceComponent implements OnInit {
     localStorage.setItem("AR-data", JSON.stringify(ciphertext))
     this.printService.printDocument('AR');
   }
+
+  getDRFieldValue(e: any) {
+    this.isInvoicePrint = false
+    const data = this.items.map(item => {
+      return {
+        quantity: item.quantity,
+        description: item.description,
+        amount: item.quantity * item.uPrice,
+      }
+    })
+
+    const DRdata = {
+      grandTotal: this.order.grandTotal,
+      items: data,
+      name: e.name,
+      address: e.address,
+      contactNo: e.contactNo,
+      mod: e.mod
+    }
+
+    var ciphertext = CryptoJS.AES.encrypt(JSON.stringify(DRdata), '1234214214221').toString();
+    localStorage.setItem("DR-data", JSON.stringify(ciphertext))
+    this.printService.printDocument('DR');
+  }
+
 
   onOptionsSelected(value: any){
     const descValue = this.form.controls['description'].value;
@@ -237,6 +297,7 @@ export class InvoiceComponent implements OnInit {
     }
     var ciphertext = CryptoJS.AES.encrypt(JSON.stringify(data), '1234214214221').toString();
     localStorage.setItem("data", JSON.stringify(ciphertext))
+    this.isInvoicePrint = true;
     this.printService.printDocument('invoice');
   }
 

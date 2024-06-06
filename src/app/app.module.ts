@@ -21,6 +21,10 @@ import { NavBarComponent } from './sections/nav-bar/nav-bar.component';
 import { DialogComponent } from './shared/dialog/dialog.component';
 import { ProductsComponent } from './shop/products/products.component';
 import { ShopComponent } from './shop/shop.component';
+import { InvoiceFooterV2Component } from './sections/invoice-footer-v2/invoice-footer-v2.component';
+import { PurchaseOrderComponent } from './receipts/purchase-order/purchase-order.component';
+import { InvoiceFooterComponent } from './sections/invoice-footer/invoice-footer.component';
+import { TINFormatterDirective } from './shared/directives/TINFormatter.directive';
 
 
 @NgModule({
@@ -40,7 +44,11 @@ import { ShopComponent } from './shop/shop.component';
     FieldComponent,
     FormComponent,
     AcknowledgementComponent,
-    DeliveryComponent
+    DeliveryComponent,
+    InvoiceFooterV2Component,
+    PurchaseOrderComponent,
+    InvoiceFooterComponent,
+    TINFormatterDirective
   ],
   imports: [
     BrowserModule,
@@ -48,6 +56,9 @@ import { ShopComponent } from './shop/shop.component';
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule
+  ],
+  exports: [
+    TINFormatterDirective
   ],
   providers: [ ArraySortPipe],
   bootstrap: [AppComponent]

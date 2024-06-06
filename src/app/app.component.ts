@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { PrintLayoutComponent } from './print-layout/print-layout.component';
 // import html2canvas from "html2canvas";
 @Component({
   selector: 'app-root',
@@ -9,6 +10,9 @@ import { FormBuilder } from '@angular/forms';
 export class AppComponent {
   constructor( private formBuilder: FormBuilder){}
 
-  ngOnInit(){}
+  ngOnInit(){
+  }
+
+
 }
 

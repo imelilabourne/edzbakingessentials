@@ -13,7 +13,7 @@ input, select {
     border: .5px solid rgb(133, 133, 133);
     border-radius: 5px;
     text-indent: 10px;
-    min-width: 100px;
+    min-width: 130px;
 }
 
 input:focus {

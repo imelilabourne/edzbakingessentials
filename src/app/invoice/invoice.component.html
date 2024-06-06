@@ -75,7 +75,10 @@
         <button (click)="generalService.showDialog = true" class="btn btn--discount">ADD ONS</button>
         <div class="flex">
           <button (click)="getAR()" class="btn btn--gen">AR</button>
-          <button class="btn btn--gen">DR</button>
+          <button [disabled]="items.length <= 0" (click)="getDR()" class="btn btn--gen">DR</button>
+        </div>
+        <div class="flex">
+          <button [disabled]="items.length <= 0" (click)="getPO()" class="btn btn--gen">PO</button>
         </div>
       </div>
 
@@ -164,7 +167,11 @@
     </div>
   </div>
 </div>
-
+<ng-container *ngIf="isInvoicePrint">
+  <invoice-footer></invoice-footer>
+</ng-container>
 <app-dialog [questions]="questions" (discountEmitter)="getDiscount($event)" *ngIf="generalService.showDialog"></app-dialog>
+<app-dialog [questions]="questionsPO" (discountEmitter)="getPOFieldValue($event)" *ngIf="generalService.showPODialog"></app-dialog>
 <!-- <app-dialog (discountEmitter)="getDiscount($event)" *ngIf="generalService.showDialog"></app-dialog> -->
 <app-dialog [questions]="questionsAR" (discountEmitter)="getARFieldValue($event)" *ngIf="generalService.showARDialog"></app-dialog>
+<app-dialog [questions]="questionsDR" (discountEmitter)="getDRFieldValue($event)" *ngIf="generalService.showDRDialog"></app-dialog>

@@ -6,14 +6,14 @@ import { Router } from '@angular/router';
 })
 export class PrintService {
   isPrinting = false;
+  designVersion: number = 1;
   constructor(private router: Router) { }
 
   printDocument(documentName: string) {
     this.isPrinting = true;
     this.router.navigate(['/',
       { outlets: {
-        // 'print': ['print', documentName, documentData.join()]
-        'print': ['print', documentName]
+        'print': [documentName]
       }}]);
   }
 

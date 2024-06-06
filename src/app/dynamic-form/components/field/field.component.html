@@ -2,9 +2,15 @@
     <label [ngClass]="question.required ? 'required' : ''" [attr.for]="question.key">{{question.label}}: </label>
   
     <div  [ngSwitch]="question.controlType">
-        <input *ngSwitchCase="'input'" [formControlName]="question.key"
-          [id]="question.key" [type]="question.type"
-        >
+        <ng-container *ngIf="question.key !== 'tin'">
+            <input *ngSwitchCase="'input'" [formControlName]="question.key"
+            [id]="question.key" [type]="question.type">
+        </ng-container>
+
+        <ng-container *ngIf="question.key === 'tin'">
+            <input *ngSwitchCase="'input'" [formControlName]="question.key" appTINFormatter
+            [id]="question.key" [type]="question.type">
+        </ng-container>
   
         <select *ngSwitchCase = "'dropdown'" [formControlName]="question.key">
             <option *ngFor="let option of question.options" [value]="option.value">{{option.value}}</option>

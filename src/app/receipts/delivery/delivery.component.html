@@ -1,25 +1,43 @@
 <div class="container">
     <h1>DELIVERY RECEIPT</h1>
 
-    <p>Date: Oct 3, 2023</p>
+    <p>Date: {{date | date}}</p>
 
-    <div>
-        <p>TO</p>
+    <div class="flex">
+        <p style="margin-right: 20px;">TO:</p>
+        <div style="flex-grow: 1;"> 
+            <p>{{ deliveryDetails?.name | uppercase}}</p>
+            <p>{{ deliveryDetails?.address | uppercase}}</p>
+            <p>{{ deliveryDetails?.contactNo | uppercase}}</p>
+        </div>
     </div>
 
-    <label for="">
-        <input type="checkbox" name="" id=""> PARTIAL DELIVERY
-    </label>
-
-    <label for="">
-        <input type="checkbox" name="" id=""> COMPLETE DELIVERY
-    </label>
-
+    <div class="flex" style="justify-content: center; margin: 10px 0;">
+        <label class="checkbox-container">
+            <input type="checkbox" name="" id="" [checked]="deliveryDetails?.mod === 'Partial Delivery'"><span> PARTIAL DELIVERY</span>
+        </label>
+        <label class="checkbox-container">
+            <input type="checkbox" name="" id="" [checked]="deliveryDetails?.mod === 'Complete Delivery'"> COMPLETE DELIVERY
+        </label>
+    </div>
     <table>
         <tr>
-            <th>QUALITY</th>
+            <th>QUANTITY</th>
             <th>DESCRIPTION</th>
-            <th>AMOUNT</th>
+            <th style="min-width: 120px">AMOUNT</th>
+        </tr>
+
+        <tr *ngFor="let item of items">
+            <td>{{item.quantity}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.amount | currency: 'Php '}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align: end; font-weight: bold;">TOTAL</td>
+            <td>{{deliveryDetails?.grandTotal | currency: 'Php '}}</td>
         </tr>
     </table>
 </div>
+
+<invoice-footer></invoice-footer>

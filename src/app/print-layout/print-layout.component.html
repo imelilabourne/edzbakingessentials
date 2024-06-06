@@ -12,23 +12,31 @@
   </td></tr></tfoot>
 </table>
 
-<div class="header">
-  <div class="image-wrapper">
-    <img [src]="imageSource" alt="">
+<ng-container *ngIf="headerVersion === 1">
+  <div class="header">
+    <div class="image-wrapper">
+      <img [src]="imageSource" alt="">
+      <div class="line"></div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="headerVersion === 2">
+  <div class="header">
+    <div style="display: flex; justify-content: space-between;">
+      <div class="image-wrapper--footer2">
+        <img [src]="imageSource" alt="">
+      </div>
+      <div style="max-width: 40%; line-height: 22px;">
+        EDZ BAKING & PACKAGING SUPPLIES
+        004 Santo Niño Street Campsite
+        Payatas A 1119 NCR, Second District
+        - Quezon City Metro Manila
+        Contact No. 09985658401
+        TIN 279-110-782-00000
+      </div>
+    </div>
     <div class="line"></div>
   </div>
-</div>
-<div class="footer">
-  <div class="line-footer"></div>
-  <div class="contact">
-    <p>If you have any questions about this invoice, please contact</p>
-    <br>
-    <p>Edz Baking Essentials</p>
-    <p>09985658401</p>
-    <p class="email">edzbakingessentials@gmail.com</p>
-    <br>
-    <h5>THANK YOU FOR YOUR BUSINESS!</h5>
-  </div>
-</div>
+</ng-container>
 
-<div class="footer-inv"></div>
