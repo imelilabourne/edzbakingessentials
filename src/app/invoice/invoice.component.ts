@@ -62,7 +62,7 @@ export class InvoiceComponent implements OnInit {
   }
 
   ngOnInit(){
-    console.log("APP_INIT_v6");
+    console.log("APP_INIT_v7");
     
     this.getProducts();
     this.formInitialization();
